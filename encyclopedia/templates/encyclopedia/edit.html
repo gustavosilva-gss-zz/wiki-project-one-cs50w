@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Edit - {{ title }}
+{% endblock %}
+
+{% block body %}
+    <form action="{{ title }}" method="POST">
+        {% csrf_token %}
+        <div class="column">
+            <div>Title: {{ form.title }}</div>
+            <div>Content:<br>{{ form.content }}</div>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

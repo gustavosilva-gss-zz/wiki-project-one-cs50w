@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+
+{% block title %}
+    New Page
+{% endblock %}
+
+{% block body %}
+    {% if messages %}
+        {% for msg in messages %}
+        <div class="alert alert-warning" role="alert">
+            {{ msg }}
+          </div>
+        {% endfor %}
+    {% endif %}
+    <form action="{% url 'new_page' %}" method="POST">
+        {% csrf_token %}
+        <div class="column">
+            <div>Title: {{ form.title }}</div>
+            <div>Content:<br>{{ form.content }}</div>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

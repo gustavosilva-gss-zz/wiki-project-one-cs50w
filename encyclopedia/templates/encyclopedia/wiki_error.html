@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Error - {{ page }}
+{% endblock %}
+
+{% block additionalHead %}
+    <link href="{% static 'encyclopedia/wiki_error.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <h1>There are no entries for "{{ page }}"</h1>
+    <img class="col-lg-10 col-md-9" src="https://image.flaticon.com/icons/svg/1178/1178479.svg" id="notFoundImage">
+{% endblock %}
